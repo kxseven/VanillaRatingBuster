@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: VanillaRatingBuster
+## Author: Kylosandrax, 2017
+## Dependencies: BonusScanner
+## Notes: Displays ratings based on EJ formulas
+## Version: 0.2
+
+VanillaRatingBuster.lua
