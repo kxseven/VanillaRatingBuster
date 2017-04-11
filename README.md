@@ -3,6 +3,10 @@
 
 A very basic AddOn that calculates ratings for various specs and classes based on stat weights defined by the community. 
 
+ - Use it as a guide to assist with making gear selection choices - not to make decisions for you. 
+ - Some items it simply cannot calculate ratings for (eg. Wolfshead Helm)
+ - The AddOn provides information. What you do with that information is up to you :)
+
 ![example_druid.png](VanillaRatingBuster/assets/example_druid.png)
 
 ## How to install
