@@ -18,6 +18,9 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 **How does it calculate a rating?**
 It uses the BonusScanner AddOn to get bonuses, including enchants for an item and then uses the stat weights for your class to calculate an overall rating
 
+**What about stats with weight changes at a certain (eg. Hit) cap?**
+These can be specified as `{threshold-value, before-weight, after-weight}`. (eg. `["TOHIT"] = { 8, 100, 1.811 }`)
+
 **Why doesn't it always show a rating?**
 If the rating is `0` then it's not shown (eg. HEP value on tanking gear)
 
@@ -30,29 +33,17 @@ I don't know other classes well enough or have weights for them. If you do feel 
 
 ## Sources and Weights
 
-**Druid**
+ - Some weights are defined as simple `TYPE = WEIGHT`
+ - Others are defined as `{ THRESHOLD, BELOW_THRESHOLD_WEIGHT, AFTER_THRESHOLD_WEIGHT }`
+
 ```lua
-  ["DruidHEP"]= {
-    ["INT"]=0.60, ["MANAREG"]=4.00, ["HEAL"]=1.00, ["SPELLCRIT"]=7.50, ["SPI"]=0.30
-  },
-  ["DruidHEP2"]= {
-    ["INT"]=0.30, ["MANAREG"]=3.00, ["HEAL"]=1.00, ["SPELLCRIT"]=10.00, ["SPI"]=0.45
-  },
-  ["DruidHEPNAXX"]= {
-    ["INT"]=0.30, ["MANAREG"]=3.00, ["HEAL"]=1.20, ["SPELLCRIT"]=12.00, ["SPI"]=0.23
-  },
-  ["DruidCatDPS"]= {
-    ["STR"]=0.19075, ["AGI"]=0.0893452, ["CRIT"]=1.875, ["TOHIT"]=1.811, ["ATTACKPOWER"]=0.0953333
-  },
-  ["DruidBearTank"]= {
-    ["AGI"]=2.29, ["ARMOR"]=0.79727, ["DEFENSE"]=4.7, ["DODGE"]=39.5, ["STA"]=6.242
+  ["DruidCatDPS"] = {
+    ["STR"]         = 0.19075,
+    ["AGI"]         = 0.0893452,
+    ["CRIT"]        = 1.875,
+    ["TOHIT"]       = { 8, 1.811, 0 }, 
+    ["ATTACKPOWER"] = 0.0953333
   },
 ```
 
-**Shaman**
-```lua
-  ["ShamanHEP"]= {
-    ["INT"]=0.20, ["MANAREG"]=1.00, ["HEAL"]=0.14, ["SPELLCRIT"]=0.00, ["SPI"]=0.00
-  }
-```
 

@@ -95,8 +95,16 @@ VRB_WEIGHTS_HEP = {
     ["STR"]         = 0.19075,
     ["AGI"]         = 0.0893452,
     ["CRIT"]        = 1.875,
-    ["TOHIT"]       = 1.811,
+    ["TOHIT"]       = { 8, 1.811, 0 }, 
     ["ATTACKPOWER"] = 0.0953333
+  },
+
+  ["DruidCatAPValue"] = {
+    ["STR"]         = 2.4,
+    ["AGI"]         = 2.1,
+    ["CRIT"]        = 22,
+    ["TOHIT"]       = { 8, 15, 0 }, 
+    ["ATTACKPOWER"] = 1
   },
 
   ["DruidBearTank"] = {
@@ -136,23 +144,28 @@ VRB_WEIGHTS_HEP = {
     ["DEFENSE"] = 0.08
   },
 
-  ["WarriorDPSBeforeHitCap"] = {
+  ["WarriorArmsDPS"] = {
     ["STR"]         = 0.1910,
     ["AGI"]         = 0.0971,
     ["CRIT"]        = 2.04,
-    ["TOHIT"]       = 100,
+    ["TOHIT"]       = { 8, 100, 2.04 },
     ["ATTACKPOWER"] = 0.0595
   },
 
-  ["WarriorDPSAfterHitCap"] = {
+  ["WarriorFuryDPS"] = {
     ["STR"]         = 0.1910,
     ["AGI"]         = 0.0971,
     ["CRIT"]        = 2.04,
-    ["TOHIT"]       = 2.04,
+    ["TOHIT"]       = { 14, 100, 2.04 },
     ["ATTACKPOWER"] = 0.0595
   }
 
 }
+
+
+function istable(t)
+  return type(t) == 'table'
+end
 
 
 function VRBRound(input, places)
@@ -180,9 +193,9 @@ function VRBGetValidRatings()
   local class = UnitClass("player")
 
   if class == "Druid" then
-    ratings = { "DruidHEP", "DruidCatDPS", "DruidBearTank" }
+    ratings = { "DruidHEP", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" }
   elseif class == "Warrior" then
-    ratings = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorDPSBeforeHitCap", "WarriorDPSAfterHitCap"}
+    ratings = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS"}
   elseif class == "Shaman" then
     ratings = { "ShamanHEP" }
   end
@@ -201,7 +214,19 @@ function VRBCalculateRating(weightTable, bonuses)
   for t,w in pairs(weightTypes) do
 
     if(bonuses[t]) then
-      baseScore = baseScore + ( bonuses[t] * w )
+      -- Now check if the weight is a compound structure; has a threshold
+      if istable(w) then
+        threshold = w[1]
+        beforeWeight = w[2]
+        afterWeight = w[3]
+        if tonumber(BonusScanner.bonuses[t]) < tonumber(threshold) then
+          baseScore = baseScore + ( bonuses[t] * beforeWeight )
+        else
+          baseScore = baseScore + ( bonuses[t] * afterWeight )
+        end
+      else
+        baseScore = baseScore + ( bonuses[t] * w )
+      end
     end
 
   end
@@ -243,11 +268,14 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
       if(bonuses) then
 
         local ratings = VRBGetValidRatings()
+        local className, classFileName = UnitClass("player")
+        local color = RAID_CLASS_COLORS[classFileName]
+
         for i, r in ipairs(ratings) do
           vrbscore = VRBCalculateRating(r, bonuses)
           if vrbscore > 0 then
-            normalizedLabel = string.gsub(r, UnitClass("player"), "")
-            GameTooltip:AddLine(LIGHTYELLOW_FONT_COLOR_CODE .. normalizedLabel .. ": " .. vrbscore)
+            normalizedLabel = string.gsub(r, className, "")
+            GameTooltip:AddLine(normalizedLabel .. ": " .. vrbscore, color.r, color.g, color.b)
             GameTooltip:Show()          
           end
         end

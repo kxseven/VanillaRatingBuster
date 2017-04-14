@@ -3,6 +3,6 @@
 ## Author: Kylosandrax, 2017
 ## Dependencies: BonusScanner
 ## Notes: Displays ratings for items in tooltips based on stat weights 
-## Version: 0.3
+## Version: 0.4
 
 VanillaRatingBuster.lua
