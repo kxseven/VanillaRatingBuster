@@ -382,11 +382,11 @@ function BonusScanner:CheckGeneric(line)
        	tmpStr = string.gsub( tmpStr, "%.$", "" );
 
 		_, _, value, token = string.find(tmpStr, BONUSSCANNER_PATTERN_GENERIC_PREFIX);
-		if(not value) then
-			_, _, value, token = string.find(tmpStr, BONUSSCANNER_PATTERN_ARMOR_PREFIX);
-		end
 		if(not value) then		
 			_, _,  token, value = string.find(tmpStr, BONUSSCANNER_PATTERN_GENERIC_SUFFIX);
+		end
+		if(not value) then
+			_, _, value, token = string.find(tmpStr, BONUSSCANNER_PATTERN_ARMOR_PREFIX);
 		end
 		if(token and value) then
 			-- trim token
