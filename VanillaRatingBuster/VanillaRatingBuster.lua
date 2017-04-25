@@ -210,8 +210,13 @@ function VRBCalculateRating(weightTable, bonuses)
   local baseScore = 0
   local bonus, i;
   local weightTypes = VRB_WEIGHTS_HEP[weightTable]
+  local currentBonus = 0
 
   for t,w in pairs(weightTypes) do
+
+    if (BonusScanner.bonuses[t]) then
+      currentBonus = BonusScanner.bonuses[t]
+    end
 
     if(bonuses[t]) then
       -- Now check if the weight is a compound structure; has a threshold
@@ -219,7 +224,7 @@ function VRBCalculateRating(weightTable, bonuses)
         threshold = w[1]
         beforeWeight = w[2]
         afterWeight = w[3]
-        if tonumber(BonusScanner.bonuses[t]) < tonumber(threshold) then
+        if tonumber(currentBonus) < tonumber(threshold) then
           baseScore = baseScore + ( bonuses[t] * beforeWeight )
         else
           baseScore = baseScore + ( bonuses[t] * afterWeight )
