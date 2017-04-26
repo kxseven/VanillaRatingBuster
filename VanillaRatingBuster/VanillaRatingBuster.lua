@@ -193,7 +193,7 @@ function VRBGetValidRatings()
   local class = UnitClass("player")
 
   if class == "Druid" then
-    ratings = { "DruidHEP", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" }
+    ratings = { "DruidHEP", "DruidHEP2", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" }
   elseif class == "Warrior" then
     ratings = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS"}
   elseif class == "Shaman" then
