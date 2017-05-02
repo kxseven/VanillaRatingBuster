@@ -3,7 +3,10 @@
 
 A very basic AddOn that calculates ratings for various specs and classes based on stat weights defined by the community. 
 
-![example_druid.png](VanillaRatingBuster/assets/example_druid.png)
+![vb_druid_feral.png](VanillaRatingBuster/assets/vb_druid_feral.png)
+![vb_druid_healing.png](VanillaRatingBuster/assets/vb_druid_healing.png)
+![vb_warrior_dps.png](VanillaRatingBuster/assets/vb_warrior_dps.png)
+![vb_warrior_tank.png](VanillaRatingBuster/assets/vb_warrior_tank.png)
 
 ## How to install
 
