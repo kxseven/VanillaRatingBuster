@@ -145,19 +145,19 @@ VRB_WEIGHTS_HEP = {
   },
 
   ["WarriorArmsDPS"] = {
-    ["STR"]         = 0.1910,
+    ["STR"]         = 0.1428571428571429,
     ["AGI"]         = 0.1020,
     ["CRIT"]        = 2.04,
     ["TOHIT"]       = { 8, 100, 2.04 },
-    ["ATTACKPOWER"] = 0.0595
+    ["ATTACKPOWER"] = 0.0714285714285714
   },
 
   ["WarriorFuryDPS"] = {
-    ["STR"]         = 0.1910,
+    ["STR"]         = 0.1428571428571429,
     ["AGI"]         = 0.1020,
     ["CRIT"]        = 2.04,
     ["TOHIT"]       = { 14, 100, 2.04 },
-    ["ATTACKPOWER"] = 0.0595    
+    ["ATTACKPOWER"] = 0.0714285714285714    
   }
 
 }
