@@ -146,7 +146,7 @@ VRB_WEIGHTS_HEP = {
 
   ["WarriorArmsDPS"] = {
     ["STR"]         = 0.1910,
-    ["AGI"]         = 0.0971,
+    ["AGI"]         = 0.1020,
     ["CRIT"]        = 2.04,
     ["TOHIT"]       = { 8, 100, 2.04 },
     ["ATTACKPOWER"] = 0.0595
@@ -154,10 +154,10 @@ VRB_WEIGHTS_HEP = {
 
   ["WarriorFuryDPS"] = {
     ["STR"]         = 0.1910,
-    ["AGI"]         = 0.0971,
+    ["AGI"]         = 0.1020,
     ["CRIT"]        = 2.04,
     ["TOHIT"]       = { 14, 100, 2.04 },
-    ["ATTACKPOWER"] = 0.0595
+    ["ATTACKPOWER"] = 0.0595    
   }
 
 }
@@ -242,7 +242,6 @@ end
 
 
 VRBItemScoreTooltip = CreateFrame( "Frame" , "VRBItemScoreTooltip", GameTooltip )
-
 VRBItemScoreTooltip:SetScript("OnShow", function (self)
     local itemLevel = nil
     local itemRarity = nil
@@ -292,5 +291,4 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
   end)
 
 
-SLASH_VRBSCORE1, SLASH_VRBSCORE2 = '/vrb', '/vanillaratingbuster';
-
+SLASH_VRBSCORE1, SLASH_VRBSCORE2 = '/vrb';
