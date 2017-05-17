@@ -52,7 +52,15 @@
 --   "MANA",     -- mana points
 -- };
 
-VRB_WEIGHTS_HEP = {
+VRB_LABELS = {
+    ["Druid"]   = { "DruidHEP", "DruidHEPT2Bonus", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" },
+    ["Shaman"]  = { "ShamanHEP" },
+    ["Warrior"] = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS" },
+    ["Priest"]  = { "Priest2MinHEP", "Priest15MinHEP", "Priest2MinHEPT2Bonus", "Priest15MinHEPT2Bonus" }
+}
+
+
+VRB_WEIGHTS = {
 
   ["DruidHEP"] = {
     ["INT"]       = 0.60,
@@ -62,7 +70,7 @@ VRB_WEIGHTS_HEP = {
     ["SPI"]       = 0.30
   },
 
-  ["DruidHEP2"] = {
+  ["DruidHEPT2Bonus"] = {
     ["INT"]       = 0.30,
     ["MANAREG"]   = 3.00,
     ["HEAL"]      = 1.00,
@@ -110,7 +118,7 @@ VRB_WEIGHTS_HEP = {
     ["SPI"]       = 0.00
   },
 
-  ["Priest2MINHEP"] = {
+  ["Priest2MinHEP"] = {
     ["INT"]       = 2.322635135,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
@@ -118,7 +126,7 @@ VRB_WEIGHTS_HEP = {
     ["SPI"]       = 0.8275
   },
 
-  ["Priest2MINHEPT2"] = {
+  ["Priest2MinHEPT2Bonus"] = {
     ["INT"]       = 2.322635135,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
@@ -126,7 +134,7 @@ VRB_WEIGHTS_HEP = {
     ["SPI"]       = 1.1775
   },
   
-  ["Priest15MINHEP"] = {
+  ["Priest15MinHEP"] = {
     ["INT"]       = 0.4351,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
@@ -134,7 +142,7 @@ VRB_WEIGHTS_HEP = {
     ["SPI"]       = 0.8275
   },  
 
-  ["Priest15MINHEPT2"] = {
+  ["Priest15MinHEPT2Bonus"] = {
     ["INT"]       = 0.4351,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,

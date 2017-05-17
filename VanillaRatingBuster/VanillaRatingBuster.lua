@@ -38,20 +38,14 @@ end
 
 
 function VRBGetValidRatings()
-  local ratings = {}
+  local ratings
   local class = UnitClass("player")
 
-  if class == "Druid" then
-    ratings = { "DruidHEP", "DruidHEP2", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" }
-  elseif class == "Warrior" then
-    ratings = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS"}
-  elseif class == "Shaman" then
-    ratings = { "ShamanHEP" }
-  elseif class == "Priest" then
-    ratings = { "Priest2MINHEP", "Priest15MINHEP", "Priest2MINHEPT2", "Priest15MINHEPT2" } 
+  ratings = VRB_LABELS[class]
+  if ratings then
+    return ratings
   end
-
-  return ratings
+  return {}
 
 end
 
@@ -60,7 +54,7 @@ function VRBCalculateRating(weightTable, bonuses)
 
   local baseScore = 0
   local bonus, i;
-  local weightTypes = VRB_WEIGHTS_HEP[weightTable]
+  local weightTypes = VRB_WEIGHTS[weightTable]
   local currentBonus = 0
 
   for t,w in pairs(weightTypes) do
