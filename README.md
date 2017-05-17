@@ -60,6 +60,11 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 | 15MinHEP | Effective Healing Power on a 15 minute combat fight (long) |
 | 15MinHEPT2Bonus | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
 
+![vb_priest_sample1.png](VanillaRatingBuster/assets/vb_priest_sample1.png)
+
+![vb_priest_sample2.png](VanillaRatingBuster/assets/vb_priest_sample2.png)
+
+
 
 **Priest Sources**
 
