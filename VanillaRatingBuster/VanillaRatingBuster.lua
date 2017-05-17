@@ -17,13 +17,9 @@ function istable(t)
 end
 
 
-function VRBRound(input, places)
-  if not places then places = 0 end
-  if type(input) == "number" and type(places) == "number" then
-    local pow = 1
-    for i = 1, places do pow = pow * 10 end
-    return floor(input * pow + 0.5) / pow
-  end
+function VRBRound(num, places)
+  local mult = 10^(places or 0)
+  return math.floor(num * mult + 0.5) / mult
 end
 
 
@@ -94,6 +90,7 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
     local bonuses = nil
     local tmpTxt, line;
     local lines = GameTooltip:NumLines();
+    local hasScoreToShow = false
 
     BonusScanner.temp.sets = {};
     BonusScanner.temp.set = "";
@@ -125,8 +122,12 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
           if vrbscore > 0 then
             normalizedLabel = string.gsub(r, className, "")
             GameTooltip:AddLine(normalizedLabel .. ": " .. vrbscore, color.r, color.g, color.b)
-            GameTooltip:Show()          
+            hasScoreToShow = true
           end
+        end
+
+        if hasScoreToShow then
+          GameTooltip:Show()
         end
 
       end
