@@ -17,8 +17,8 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 | Label | Description |
 |:----- |:----------- |
 | HEP   | Healing Effective Power at initial gearing levels, all the way up until the T2 set bonus is active (up to BWL) |
-| HEP2  | Healing Effective Power at gearing levels, once the T2 set bonus is active (BWL) |
-| HEPNAXX | Healing Effective Power at NAXX gearing levels |
+| HEPT2Bonus  | Healing Effective Power at gearing levels, once the T2 set bonus is active (BWL) |
+| HEPNAXX | Healing Effective Power at NAXX gearing levels (not yet active) |
 | CatDPS | Effective DPS in Cat form |
 | CatAPValue | Effective AP value when in Cat form |
 | BearTank | Effective survival rating when in Bear form |
@@ -55,10 +55,10 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 
 | Label | Description |
 |:----- |:----------- |
-| 2MINHEP | Effective Healing Power on a 2 minute combat fight (short) |
-| 2MINHEPT2 | Effective Healing Power on a 2 minute combat fight (short) with T2 3-piece set bonus |
-| 15MINHEP | Effective Healing Power on a 15 minute combat fight (long) |
-| 15MINHEPT2 | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
+| 2MinHEP | Effective Healing Power on a 2 minute combat fight (short) |
+| 2MinHEPT2Bonus | Effective Healing Power on a 2 minute combat fight (short) with T2 3-piece set bonus |
+| 15MinHEP | Effective Healing Power on a 15 minute combat fight (long) |
+| 15MinHEPT2Bonus | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
 
 
 **Priest Sources**
