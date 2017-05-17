@@ -6,3 +6,4 @@
 ## Version: 0.4
 
 VanillaRatingBuster.lua
+VanillaRatingBusterWeights.lua
