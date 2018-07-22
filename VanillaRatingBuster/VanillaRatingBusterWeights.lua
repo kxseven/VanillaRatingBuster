@@ -53,14 +53,42 @@
 -- };
 
 VRB_LABELS = {
-    ["Druid"]   = { "DruidHEP", "DruidHEPT2Bonus", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" },
+    ["Druid"]   = { "DruidHEP", "DruidHEP2", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" },
     ["Shaman"]  = { "ShamanHEP" },
     ["Warrior"] = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS" },
+    ["Paladin"] = { "PaladinProtEH", "PaladinRetDPS", "PaladinHEP" },
     ["Priest"]  = { "Priest2MinHEP", "Priest15MinHEP", "Priest2MinHEPT2Bonus", "Priest15MinHEPT2Bonus" }
 }
 
 
 VRB_WEIGHTS = {
+
+  ["PaladinRetDPS"] = {
+    ["STR"]         = 0.1428571428571429,
+    ["AGI"]         = 0.1020,
+    ["CRIT"]        = 2.04,
+    ["TOHIT"]       = { 8.6, 100, 2.04 },
+    ["ATTACKPOWER"] = 0.0714285714285714
+  },
+
+  ["PaladinHEP"] = {
+    ["INT"]       = 0.20,
+    ["MANAREG"]   = 1.00,
+    ["HEAL"]      = 0.14,
+    ["SPELLCRIT"] = 0.00,
+    ["SPI"]       = 0.00
+  },  
+
+  ["PaladinProtEH"] = {
+    ["ARMOR"]   = 0.51416,
+    ["STA"]     = 10.14596,
+    ["AGI"]     = 1.02832,
+    ["STR"]     = 0.05,
+    ["DODGE"]   = 0,
+    ["PARRY"]   = 0,
+    ["DEFENSE"] = 0.08,
+    ["BLOCK"]   = 0.04
+  },  
 
   ["DruidHEP"] = {
     ["INT"]       = 0.60,
@@ -70,7 +98,7 @@ VRB_WEIGHTS = {
     ["SPI"]       = 0.30
   },
 
-  ["DruidHEPT2Bonus"] = {
+  ["DruidHEP2"] = {
     ["INT"]       = 0.30,
     ["MANAREG"]   = 3.00,
     ["HEAL"]      = 1.00,
