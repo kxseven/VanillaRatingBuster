@@ -121,7 +121,8 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
           vrbscore = VRBCalculateRating(r, bonuses)
           if vrbscore > 0 then
             normalizedLabel = string.gsub(r, className, "")
-            GameTooltip:AddLine(normalizedLabel .. ": " .. vrbscore, color.r, color.g, color.b)
+            -- GameTooltip:AddLine(normalizedLabel .. ": " .. vrbscore, color.r, color.g, color.b)
+            GameTooltip:AddDoubleLine(normalizedLabel .. ": ", vrbscore, color.r, color.g, color.b, color.r, color.g, color.b)
             hasScoreToShow = true
           end
         end
