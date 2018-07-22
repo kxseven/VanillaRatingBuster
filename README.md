@@ -33,12 +33,12 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 
 ### Warrior
 
-| Label | Description |
-|:----- |:----------- |
-| ProtEH | Effective health value |
-| ProtAvoidance | Effective avoidance from pure dodge/parry or calculated from +Def |
-| ArmsDPS | Effective DPS value, with +Hit prioritized very highly until the 9% cap. This can also be used if you are Fury and only care about special attacks |
-| FuryDPS | Effective DPS value, with +Hit prioritized very highly until the 14% cap |
+| Label         | Description                                                                                                                                        |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+| ProtEH        | Effective health value                                                                                                                             |
+| ProtAvoidance | Effective avoidance from pure dodge/parry or calculated from +Def                                                                                  |
+| ArmsDPS       | Effective DPS value, with +Hit prioritized very highly until the 9% cap. This can also be used if you are Fury and only care about special attacks |
+| FuryDPS       | Effective DPS value, with +Hit prioritized very highly until the 14% cap                                                                           |
 
 ![vb_warrior_dps.png](VanillaRatingBuster/assets/vb_warrior_dps.png)
 
@@ -51,14 +51,33 @@ A very basic AddOn that calculates ratings for various specs and classes based o
  - [Lurker Lounge: Warrior Weapons and DPS discussion](http://www.lurkerlounge.com/forums/thread-4078.html)
 
 
+### Paladin
+
+| Label         | Description                                                              |
+|:--------------|:-------------------------------------------------------------------------|
+| PaladinRetDPS | Effective DPS value, with +Hit prioritized very highly until the 9% cap. |
+| PaladinHEP    | Effective Healing Power                                                  |
+| PaladinProtEH | Effective health value                                                   |
+
+
+
+
+**Paladin Sources**
+
+ - No good ones as yet. Most of the above is based of existing Warrior (for Tank and DPS) and Shaman (for HEP) weights
+
+
+
 ### Priest
 
-| Label | Description |
-|:----- |:----------- |
-| 2MinHEP | Effective Healing Power on a 2 minute combat fight (short) |
-| 2MinHEPT2Bonus | Effective Healing Power on a 2 minute combat fight (short) with T2 3-piece set bonus |
-| 15MinHEP | Effective Healing Power on a 15 minute combat fight (long) |
-| 15MinHEPT2Bonus | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
+| Label               | Description                                                                          |
+|:--------------------|:-------------------------------------------------------------------------------------|
+| PriestHEP_2M        | Effective Healing Power on a 2 minute combat fight (short)                           |
+| PriestHEP_2M_T2     | Effective Healing Power on a 2 minute combat fight (short) with T2 3-piece set bonus |
+| PriestHEP_15M       | Effective Healing Power on a 15 minute combat fight (long)                           |
+| PriestHEP_15M_T2    | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
+| PriestShadowDPS_2M  | DPS values for short fights <2mins                                                   |
+| PriestShadowDPS_15M | DPS values for longer fights 2-15min                                                 |
 
 ![vb_priest_sample1.png](VanillaRatingBuster/assets/vb_priest_sample1.png)
 
@@ -70,6 +89,7 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 
  - [Nostalrius Priest Forum](https://forum.nostalrius.org/viewtopic.php?f=39&t=31668)
  - [Priest Gear Listing with stat weights](https://docs.google.com/spreadsheets/d/1l2o5WhYf18AsprwRoLYvuaSP96Y2xxJE743xXyenfHk)
+ - [Shadow Priest Theorycraft by Killerduki](https://forum.nostalrius.org/viewtopic.php?f=39&t=44912)
 
 
 
