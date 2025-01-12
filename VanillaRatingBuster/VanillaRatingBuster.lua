@@ -1,5 +1,5 @@
 
-scoredItemTypes = { 
+scoredItemTypes = {
   INVTYPE_2HWEAPON, INVTYPE_CHEST, INVTYPE_CLOAK,
   INVTYPE_FEET, INVTYPE_FINGER, INVTYPE_HAND, INVTYPE_HEAD, INVTYPE_HOLDABLE,
   INVTYPE_LEGS, INVTYPE_NECK, INVTYPE_RANGED, INVTYPE_RELIC, INVTYPE_ROBE, INVTYPE_SHIELD,
@@ -8,7 +8,7 @@ scoredItemTypes = {
   -- deDE
   "Schusswaffe", "Zauberstab", "Armbrust",
   -- enGB
-  "Gun", "Wand", "Crossbow" 
+  "Gun", "Wand", "Crossbow"
 }
 
 
@@ -54,7 +54,7 @@ function VRBCalculateRating(weightTable, bonuses)
   local currentBonus = 0
 
   for t,w in pairs(weightTypes) do
-  
+
     if (BonusScanner.bonuses[t]) then
       currentBonus = BonusScanner.bonuses[t]
     end
@@ -77,7 +77,7 @@ function VRBCalculateRating(weightTable, bonuses)
 
   end
 
-  return VRBRound(baseScore, 2) 
+  return VRBRound(baseScore, 2)
 
 end
 
@@ -87,10 +87,14 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
     local itemLevel = nil
     local itemRarity = nil
     local itemSlot = nil
+    local itemName = nil
+    local itemID = nil
     local bonuses = nil
     local tmpTxt, line;
     local lines = GameTooltip:NumLines();
     local hasScoreToShow = false
+    local vrbscore = 0
+    local normalizedLabel = nil
 
     BonusScanner.temp.sets = {};
     BonusScanner.temp.set = "";
@@ -117,12 +121,12 @@ VRBItemScoreTooltip:SetScript("OnShow", function (self)
         local className, classFileName = UnitClass("player")
         local color = RAID_CLASS_COLORS[classFileName]
 
-        for i, r in ipairs(ratings) do
+        for _, r in ipairs(ratings) do
           vrbscore = VRBCalculateRating(r, bonuses)
           if vrbscore > 0 then
             normalizedLabel = string.gsub(r, className, "")
             -- GameTooltip:AddLine(normalizedLabel .. ": " .. vrbscore, color.r, color.g, color.b)
-            GameTooltip:AddDoubleLine(normalizedLabel .. ": ", vrbscore, color.r, color.g, color.b, color.r, color.g, color.b)
+            GameTooltip:AddDoubleLine(normalizedLabel .. ": ", vrbscore , color.r, color.g, color.b, color.r, color.g, color.b)
             hasScoreToShow = true
           end
         end

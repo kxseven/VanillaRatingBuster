@@ -1,6 +1,6 @@
 ﻿-- From BonusScanner
 -- types = {
---   "STR",      -- strength 
+--   "STR",      -- strength
 --   "AGI",      -- agility
 --   "STA",      -- stamina
 --   "INT",      -- intellect
@@ -9,7 +9,7 @@
 
 --   "ARCANERES",  -- arcane resistance
 --   "FIRERES",    -- fire resistance
---   "NATURERES",  -- nature resistance  
+--   "NATURERES",  -- nature resistance
 --   "FROSTRES",   -- frost resistance
 --   "SHADOWRES",  -- shadow resistance
 
@@ -24,7 +24,7 @@
 --   "PARRY",    -- chance to parry
 --   "ATTACKPOWER",  -- attack power
 --   "ATTACKPOWERUNDEAD", -- attack power against undead
-  
+
 --   "CRIT",     -- chance to get a critical strike
 --   "RANGEDATTACKPOWER", -- ranged attack power
 --   "RANGEDCRIT", -- chance to get a crit with ranged weapons
@@ -32,7 +32,7 @@
 
 --   "DMG",      -- spell damage
 --   "DMGUNDEAD",  -- spell damage against undead
-  
+
 --   "ARCANEDMG",  -- arcane spell damage
 --   "FIREDMG",    -- fire spell damage
 --   "FROSTDMG",   -- frost spell damage
@@ -40,7 +40,7 @@
 --   "NATUREDMG",  -- nature spell damage
 --   "SHADOWDMG",  -- shadow spell damage
 --   "SPELLCRIT",  -- chance to crit with spells
---   "HEAL",     -- healing 
+--   "HEAL",     -- healing
 --   "HOLYCRIT",   -- chance to crit with holy spells
 --   "SPELLTOHIT",   -- Chance to Hit with spells
 
@@ -53,11 +53,11 @@
 -- };
 
 VRB_LABELS = {
-    ["Druid"]   = { "DruidHEP", "DruidHEP2", "DruidCatDPS", "DruidCatAPValue", "DruidBearTank" },
-    ["Shaman"]  = { "ShamanHEP" },
-    ["Warrior"] = { "WarriorProtEH", "WarriorProtAvoidance", "WarriorArmsDPS", "WarriorFuryDPS" },
+    ["Druid"]   = { "DruidFeralDPS-EP", "DruidTanking-EP", "DruidResto-EP" },
+    ["Shaman"]  = { "ShamanHEP", "ShamanMelee" },
+    ["Warrior"] = { "WarriorThreat-EP", "WarriorMitigation-EP", "WarriorFury-EP" },
     ["Paladin"] = { "PaladinProtEH", "PaladinRetDPS", "PaladinHEP" },
-    ["Priest"]  = { "PriestHEP_2M", "PriestHEP_15M", "PriestShadowDPS_2M" }
+    ["Priest"]  = { "PriestHEP_2M", "PriestHEP_15M", "PriestHEP_TIG", "PriestShadowDPS_2M", "PriestShadowDPS_9M" }
 --    ["Priest"]  = { "Priest2MinHEP", "Priest15MinHEP", "Priest2MinHEPT2Bonus", "Priest15MinHEPT2Bonus" }
 }
 
@@ -70,7 +70,7 @@ VRB_WEIGHTS = {
     ["CRIT"]        = 2.04,
     ["TOHIT"]       = { 5.6, 100, 0 },
     ["ATTACKPOWER"] = 0.0714285714285714
-  }, 
+  },
 
   ["PaladinHEP"] = {
     ["INT"]       = 1.00,
@@ -78,7 +78,7 @@ VRB_WEIGHTS = {
     ["HEAL"]      = 1.00,
     ["SPELLCRIT"] = 20.34,
     ["SPI"]       = 0.00
-  },  
+  },
 
   ["PaladinProtEH"] = {
     ["ARMOR"]   = 0.51416,
@@ -89,7 +89,17 @@ VRB_WEIGHTS = {
     ["PARRY"]   = 0,
     ["DEFENSE"] = 0.08,
     ["BLOCK"]   = 0.04
-  },  
+  },
+
+  ["DruidResto-EP"] = {
+    ["HEAL"]      = 1.00,
+    ["DMG"]       = 1.00,
+    ["INT"]       = 0.3,
+    ["SPI"]       = 0.46,
+    ["MANAREG"]   = 3.0,
+    ["SPELLCRIT"] = 10,
+    ["MANA"]      = 0.02,
+  },
 
   ["DruidHEP"] = {
     ["INT"]       = 0.60,
@@ -115,19 +125,19 @@ VRB_WEIGHTS = {
     ["SPI"]       = 0.23
   },
 
-  ["DruidCatDPS"] = {
+  ["DruidCatDPSLegacy"] = {
     ["STR"]         = 0.19075,
     ["AGI"]         = 0.0893452,
     ["CRIT"]        = 1.875,
-    ["TOHIT"]       = { 8, 1.811, 0 }, 
+    ["TOHIT"]       = { 8, 1.811, 0 },
     ["ATTACKPOWER"] = 0.0953333
   },
 
-  ["DruidCatAPValue"] = {
+  ["DruidCatDPS"] = {
     ["STR"]         = 2.4,
     ["AGI"]         = 2.1,
     ["CRIT"]        = 22,
-    ["TOHIT"]       = { 8, 15, 0 }, 
+    ["TOHIT"]       = { 8, 15, 0 },
     ["ATTACKPOWER"] = 1
   },
 
@@ -139,6 +149,31 @@ VRB_WEIGHTS = {
     ["STA"]     = 6.242
   },
 
+  ["DruidFeralDPS-EP"] = {
+    ["ATTACKPOWER"] = 1,
+    ["FERALATTACKPOWER"] = 1,
+    ["STR"]      = 2.64,
+    ["AGI"]      = 2.8,
+    ["TOHIT"]    = { 32.78, 8, 0 },
+    ["CRIT"]     = 30.88,
+    ["ARMORPEN"] = 0.5,
+  },
+
+  ["DruidTanking-EP"] = {
+    ["STR"]     = 2.2,
+    ["AGI"]     = 1.57,
+    ["STA"]     = 2.2,
+    ["ATTACKPOWER"] = 1,
+    ["FERALATTACKPOWER"] = 1,
+    ["TOHIT"]   = { 36.1, 8, 0 },
+    ["CRIT"]    = 25.8,
+    ["HASTE"]    = 26.6,
+    ["ARMOR"]   = 0.33,
+    ["DEFENSE"] = 0.46,
+    ["HEALTH"] = 0.167,
+    ["ARMORPEN"] = 0.5,
+  },
+
   ["ShamanHEP"] = {
     ["INT"]       = 0.20,
     ["MANAREG"]   = 1.00,
@@ -147,11 +182,27 @@ VRB_WEIGHTS = {
     ["SPI"]       = 0.00
   },
 
+  ["ShamanMelee"] = {
+    ["STR"]         = 0.1428571428571429,
+    ["AGI"]         = 0.1020,
+    ["CRIT"]        = 2.04,
+    ["TOHIT"]       = { 5.6, 2.04, 0 },
+    ["ATTACKPOWER"] = 0.0714285714285714
+  },
+
+  ["PriestHEP_TIG"] = {
+    ["INT"]       = 1.1607,
+    ["MANAREG"]   = 3.5,
+    ["HEAL"]      = 1,
+    ["SPELLCRIT"] = 1.161317565,
+    ["SPI"]       = 0.8275
+  },
+
   ["PriestHEP_2M"] = {
     ["INT"]       = 2.322635135,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
-    ["SPELLCRIT"] = 8,
+    ["SPELLCRIT"] = 1.161317565,
     ["SPI"]       = 0.8275
   },
 
@@ -159,66 +210,70 @@ VRB_WEIGHTS = {
     ["INT"]       = 2.322635135,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
-    ["SPELLCRIT"] = 8,
+    ["SPELLCRIT"] = 1.161317565,
     ["SPI"]       = 1.1775
   },
-  
+
   ["PriestHEP_15M"] = {
     ["INT"]       = 0.4351,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
-    ["SPELLCRIT"] = 8,
+    ["SPELLCRIT"] = 1.161317565,
     ["SPI"]       = 0.8275
-  },  
+  },
 
   ["PriestHEP_15M_T2"] = {
     ["INT"]       = 0.4351,
     ["MANAREG"]   = 3.5,
     ["HEAL"]      = 1,
-    ["SPELLCRIT"] = 8,
+    ["SPELLCRIT"] = 1.161317565,
     ["SPI"]       = 1.1775
-  },  
+  },
 
 
   ["PriestShadowDPS_2M"] = {
-    ["DMG"]        = 0.387742,
-    ["SHADOWDMG"]  = 0.387742,
-    ["INT"]        = 1.093871,
-    ["MANAREG"]    = 0.077742,
-    ["SPI"]        = 0.006452,
-    ["SPELLCRIT"]  = 0.018231,
-    ["SPELLTOHIT"] = { 8, 100, 0 }, 
+    ["DMG"]        = 1,
+    ["SHADOWDMG"]  = 1,
+    ["INT"]        = 1.52,
+    ["MANAREG"]    = 1.8,
+    ["SPI"]        = 0.34,
+    ["SPELLCRIT"]  = 1.25,
+    ["SPELLTOHIT"] = { 8, 10.36, 0 },
   },
 
-  ["PriestShadowDPS_15M"] = {
-    ["DMG"]        = 0.39,
-    ["SHADOWDMG"]  = 0.39,
-    ["INT"]        = 0.546774,
-    ["MANAREG"]    = 0.077742,
-    ["SPI"]        = 0.012903,
-    ["SPELLCRIT"]  = 0.009113,
-    ["SPELLTOHIT"] = { 8, 100, 0 }, 
+  ["PriestShadowDPS_9M"] = {
+    ["DMG"]        = 1,
+    ["SHADOWDMG"]  = 1,
+    ["INT"]        = 0.4,
+    ["MANAREG"]    = 2.81,
+    ["SPI"]        = 0.09,
+    ["SPELLCRIT"]  = 0.88,
+    ["SPELLTOHIT"] = { 8, 10.02, 0 },
   },
 
-  ["WarriorProtEH"] = {
-    ["ARMOR"]   = 0.51416,
-    ["STA"]     = 10.14596,
-    ["AGI"]     = 1.02832,
-    ["STR"]     = 0.05,
+  ["WarriorThreat-EP"] = {
+    ["AGI"]     = 1.05,
+    ["ARMOR"]   = 0.05,
+    ["ATTACKPOWER"] = 1,
+    ["BLOCK"]   = 0.04,
+    ["CRIT"]    = 22,
+    ["DEFENSE"] = 0.22,
     ["DODGE"]   = 0,
-    ["PARRY"]   = 0,
-    ["DEFENSE"] = 0.08,
-    ["BLOCK"]   = 0.04
+    ["PARRY"]   = 7.47,
+    ["STR"]     = 2,
+    ["TOHIT"]   = { 14, 27, 0 },
   },
 
-  ["WarriorProtAvoidance"] = {
-    ["ARMOR"]   = 0,
-    ["STA"]     = 0,
-    ["AGI"]     = 0.05,
-    ["STR"]     = 0,
-    ["DODGE"]   = 1,
-    ["PARRY"]   = 0.04,
-    ["DEFENSE"] = 0.08
+  ["WarriorMitigation-EP"] = {
+    ["AGI"]     = 0.91,
+    ["ARMOR"]   = 0.05,
+    ["BLOCK"]   = 0.04,
+    ["DEFENSE"] = 2.61,
+    ["DODGE"]   = 16.29,
+    ["PARRY"]   = 16.29,
+    ["STA"]     = 1,
+    ["STR"]     = 0.02,
+    ["TOHIT"]   = { 9, 27, 0 },
   },
 
   ["WarriorArmsDPS"] = {
@@ -229,12 +284,13 @@ VRB_WEIGHTS = {
     ["ATTACKPOWER"] = 0.0714285714285714
   },
 
-  ["WarriorFuryDPS"] = {
-    ["STR"]         = 0.1428571428571429,
-    ["AGI"]         = 0.1020,
-    ["CRIT"]        = 2.04,
-    ["TOHIT"]       = { 14, 2.04, 0 },
-    ["ATTACKPOWER"] = 0.0714285714285714    
+  ["WarriorFury-EP"] = {
+    ["AGI"]     = 1.00,
+    ["ATTACKPOWER"] = 1,
+    ["CRIT"]    = 20,
+    ["STR"]     = 2,
+    ["TOHIT"]   = { 14, 20, 0 },
   }
 
 }
+
