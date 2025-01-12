@@ -3,6 +3,7 @@
 
 A very basic AddOn that calculates ratings for various specs and classes based on stat weights defined by the community. 
 
+![example_druid.png](VanillaRatingBuster/assets/example_druid.png)
 
 ## How to install
 
@@ -10,92 +11,6 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 2. Unpack the Zip
 3. Copy both "VanillaRatingBuster" and "BonusScanner" folders to Wow-Directory\Interface\AddOns
 4. Restart Wow
-
-
-## Language Support
-
-Currently only English language versions of the WoW client are supported by BonusScanner due to the way in which the AddOn is coded to scan tooltip text for patterns that help it identify useful values. If you would like to add support for other languages open a PR.
-
-
-### Druid
-
-| Label | Description |
-|:----- |:----------- |
-| HEP   | Healing Effective Power at initial gearing levels, all the way up until the T2 set bonus is active (up to BWL) |
-| HEPT2Bonus  | Healing Effective Power at gearing levels, once the T2 set bonus is active (BWL) |
-| HEPNAXX | Healing Effective Power at NAXX gearing levels (not yet active) |
-| CatDPS | Effective DPS in Cat form |
-| CatAPValue | Effective AP value when in Cat form |
-| BearTank | Effective survival rating when in Bear form |
-
-![vb_druid_feral.png](VanillaRatingBuster/assets/vb_druid_feral.png)
-
-![vb_druid_healing.png](VanillaRatingBuster/assets/vb_druid_healing.png)
-
-**Druid Sources**
-
- - [Druid Gear Listing with stat weights](https://docs.google.com/spreadsheets/d/1wGBasFY8fFGpBtiD1TAUBB99wxboCSVh5MW_6b_z0oU/pubhtml#)
-
-### Warrior
-
-| Label         | Description                                                                                                                                        |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| ProtEH        | Effective health value                                                                                                                             |
-| ProtAvoidance | Effective avoidance from pure dodge/parry or calculated from +Def                                                                                  |
-| ArmsDPS       | Effective DPS value, with +Hit prioritized very highly until the 9% cap. This can also be used if you are Fury and only care about special attacks |
-| FuryDPS       | Effective DPS value, with +Hit prioritized very highly until the 14% cap                                                                           |
-
-![vb_warrior_dps.png](VanillaRatingBuster/assets/vb_warrior_dps.png)
-
-![vb_warrior_tank.png](VanillaRatingBuster/assets/vb_warrior_tank.png)
-
-
-**Warrior Sources**
-
- - Landsoul's Excel sheet (v2.x)
- - [Lurker Lounge: Warrior Weapons and DPS discussion](http://www.lurkerlounge.com/forums/thread-4078.html)
-
-
-### Paladin
-
-| Label         | Description                                                              |
-|:--------------|:-------------------------------------------------------------------------|
-| PaladinRetDPS | Effective DPS value, with +Hit prioritized very highly until the 9% cap. |
-| PaladinHEP    | Effective Healing Power                                                  |
-| PaladinProtEH | Effective health value                                                   |
-
-
-
-
-**Paladin Sources**
-
- - No good ones as yet. Most of the above is based of existing Warrior (for Tank and DPS) and Shaman (for HEP) weights
-
-
-
-### Priest
-
-| Label               | Description                                                                          |
-|:--------------------|:-------------------------------------------------------------------------------------|
-| PriestHEP_2M        | Effective Healing Power on a 2 minute combat fight (short)                           |
-| PriestHEP_2M_T2     | Effective Healing Power on a 2 minute combat fight (short) with T2 3-piece set bonus |
-| PriestHEP_15M       | Effective Healing Power on a 15 minute combat fight (long)                           |
-| PriestHEP_15M_T2    | Effective Healing Power on a 15 minute combat fight (long) with T2 3-piece set bonus |
-| PriestShadowDPS_2M  | DPS values for short fights <2mins                                                   |
-| PriestShadowDPS_15M | DPS values for longer fights 2-15min                                                 |
-
-![vb_priest_sample1.png](VanillaRatingBuster/assets/vb_priest_sample1.png)
-
-![vb_priest_sample2.png](VanillaRatingBuster/assets/vb_priest_sample2.png)
-
-
-
-**Priest Sources**
-
- - [Nostalrius Priest Forum](https://forum.nostalrius.org/viewtopic.php?f=39&t=31668)
- - [Priest Gear Listing with stat weights](https://docs.google.com/spreadsheets/d/1l2o5WhYf18AsprwRoLYvuaSP96Y2xxJE743xXyenfHk)
- - [Shadow Priest Theorycraft by Killerduki](https://forum.nostalrius.org/viewtopic.php?f=39&t=44912)
-
 
 
 ## FAQ
@@ -130,7 +45,5 @@ I don't know other classes well enough or have weights for them. If you do feel 
     ["ATTACKPOWER"] = 0.0953333
   },
 ```
-
-
 
 
