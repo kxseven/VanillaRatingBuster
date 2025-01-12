@@ -27,8 +27,9 @@ BONUSSCANNER_NAMES = {
 	CRIT 		= "Crit. hits",
 	RANGEDATTACKPOWER = "Ranged Attack Power",
 	RANGEDCRIT 	= "Crit. Shots",
+	FERALATTACKPOWER = "Feral Attack Power",
 	TOHIT 		= "Chance to Hit",
-
+	HASTE       = "Attack and casting speed",
 	DMG 		= "Spell Damage",
 	DMGUNDEAD	= "Spell Damage against Undead",
 	ARCANEDMG 	= "Arcane Damage",
@@ -40,6 +41,7 @@ BONUSSCANNER_NAMES = {
 	SPELLCRIT 	= "Crit. Spell",
 	SPELLTOHIT 	= "Chance to Hit with spells",
 	SPELLPEN 	= "Spell Penetration",
+	ARMORPEN    = "Armor Peneration",
 	HEAL 		= "Healing",
 	HOLYCRIT 	= "Crit. Holy Spell",
 
@@ -56,6 +58,8 @@ BONUSSCANNER_PREFIX_SET = "Set: ";
 -- passive bonus patterns. checked against lines which start with above prefixes
 BONUSSCANNER_PATTERNS_PASSIVE = {
 	{ pattern = "+(%d+) ranged Attack Power%.", effect = "RANGEDATTACKPOWER" },
+	{ pattern = "+(%d+) Attack Power in Cat, Bear, Dire Bear, and Moonkin forms only%.", effect = "FERALATTACKPOWER" },
+	{ pattern = "Increases your attack and casting speed by (%d+)%%%.", effect = "HASTE" },
 	{ pattern = "Increases your chance to block attacks with a shield by (%d+)%%%.", effect = "BLOCK" },
 	{ pattern = "Increases your chance to dodge an attack by (%d+)%%%.", effect = "DODGE" },
 	{ pattern = "Increases your chance to parry an attack by (%d+)%%%.", effect = "PARRY" },
@@ -80,7 +84,8 @@ BONUSSCANNER_PATTERNS_PASSIVE = {
 	{ pattern = "Restores (%d+) mana every 5 sec%.", effect = "MANAREG" },
 	{ pattern = "Improves your chance to hit by (%d+)%%%.", effect = "TOHIT" },
 	{ pattern = "Improves your chance to hit with spells by (%d+)%%%.", effect = "SPELLTOHIT" },
-	{ pattern = "Decreases the magical resistances of your spell targets by (%d+).", effect = "SPELLPEN" }
+	{ pattern = "Decreases the magical resistances of your spell targets by (%d+).", effect = "SPELLPEN" },
+	{ pattern = "Your attacks ignore (%d+) of the target's armor.", effect = "ARMORPEN" }
 };
 
 
@@ -107,12 +112,13 @@ BONUSSCANNER_PATTERNS_GENERIC_LOOKUP = {
 	["Increased Defense"]	= "DEFENSE",
 
 	["Attack Power"] 		= "ATTACKPOWER",
-	["Attack Power when fighting Undead"] 		= "ATTACKPOWERUNDEAD",
+	["Attack Power in Cat, Bear, Dire Bear, and Moonkin forms only"] 		= "FERALATTACKPOWER",
 	["Dodge"] 				= "DODGE",
 	["Block"]				= "BLOCK",
 	["Hit"] 				= "TOHIT",
 	["Spell Hit"]			= "SPELLTOHIT",
 	["Blocking"]			= "BLOCK",
+	["Ranged Attack Power"] = "RANGEDATTACKPOWER",
 	["Ranged Attack Power"] = "RANGEDATTACKPOWER",
 	["health every 5 sec"] = "HEALTHREG",
 	["Healing Spells"] 		= "HEAL",

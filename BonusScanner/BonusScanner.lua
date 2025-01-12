@@ -64,6 +64,9 @@ BonusScanner = {
 		"CRIT",			-- chance to get a critical strike
 		"RANGEDATTACKPOWER", -- ranged attack power
 		"RANGEDCRIT",	-- chance to get a crit with ranged weapons
+
+		"FERALATTACKPOWER", -- feral attack power
+		"HASTE",         -- increased attack and casting speed
 		"TOHIT",		-- chance to hit
 
 		"DMG",			-- spell damage
@@ -80,6 +83,7 @@ BonusScanner = {
 		"HOLYCRIT", 	-- chance to crit with holy spells
 		"SPELLTOHIT", 	-- Chance to Hit with spells
 
+		"ARMORPEN", 	-- amount of armor penetration
 		"SPELLPEN", 	-- amount of spell resist reduction
 
 		"HEALTHREG",	-- health regeneration per 5 sec.
@@ -362,7 +366,7 @@ end
 
 -- Scans generic bonuses like "+3 Intellect" or "Arcane Resistance +4"
 function BonusScanner:CheckGeneric(line)
-	local value, token, pos, tmpStr, found;
+	local value, token, pos, tmpStr, found, is_ranged;
 
 	-- split line at "/" for enchants with multiple effects
 	found = false;
@@ -380,13 +384,15 @@ function BonusScanner:CheckGeneric(line)
 	    tmpStr = string.gsub( tmpStr, "^%s+", "" );
    	    tmpStr = string.gsub( tmpStr, "%s+$", "" );
        	tmpStr = string.gsub( tmpStr, "%.$", "" );
+		-- Check for ranged items like wands that deal a specific school of damage
+       	tmpStr = string.gsub( tmpStr, "%d+%s%-%s%d+%s", "" );
 
 		_, _, value, token = string.find(tmpStr, BONUSSCANNER_PATTERN_GENERIC_PREFIX);
-		if(not value) then		
-			_, _,  token, value = string.find(tmpStr, BONUSSCANNER_PATTERN_GENERIC_SUFFIX);
-		end
 		if(not value) then
 			_, _, value, token = string.find(tmpStr, BONUSSCANNER_PATTERN_ARMOR_PREFIX);
+		end
+		if(not value) then		
+			_, _,  token, value = string.find(tmpStr, BONUSSCANNER_PATTERN_GENERIC_SUFFIX);
 		end
 		if(token and value) then
 			-- trim token
