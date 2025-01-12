@@ -13,6 +13,11 @@ A very basic AddOn that calculates ratings for various specs and classes based o
 4. Restart Wow
 
 
+## Language Support
+
+Currently only English language versions of the WoW client are supported by BonusScanner due to the way in which the AddOn is coded to scan tooltip text for patterns that help it identify useful values. If you would like to add support for other languages open a PR.
+
+
 ## FAQ
 
 **How does it calculate a rating?**
