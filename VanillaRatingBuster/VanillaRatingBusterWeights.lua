@@ -53,7 +53,7 @@
 -- };
 
 VRB_LABELS = {
-    ["Druid"]   = { "DruidFeralDPS-EP", "DruidTanking-EP", "DruidResto-EP" },
+    ["Druid"]   = { "DruidFeralDPS-EP", "DruidTank-EP", "DruidThreat-EP", "DruidResto-EP" },
     ["Shaman"]  = { "ShamanHEP", "ShamanMelee" },
     ["Warrior"] = { "WarriorThreat-EP", "WarriorMitigation-EP", "WarriorFury-EP" },
     ["Paladin"] = { "PaladinProtEH", "PaladinRetDPS", "PaladinHEP" },
@@ -125,21 +125,6 @@ VRB_WEIGHTS = {
     ["SPI"]       = 0.23
   },
 
-  ["DruidCatDPSLegacy"] = {
-    ["STR"]         = 0.19075,
-    ["AGI"]         = 0.0893452,
-    ["CRIT"]        = 1.875,
-    ["TOHIT"]       = { 8, 1.811, 0 },
-    ["ATTACKPOWER"] = 0.0953333
-  },
-
-  ["DruidCatDPS"] = {
-    ["STR"]         = 2.4,
-    ["AGI"]         = 2.1,
-    ["CRIT"]        = 22,
-    ["TOHIT"]       = { 8, 15, 0 },
-    ["ATTACKPOWER"] = 1
-  },
 
   ["DruidBearTank"] = {
     ["AGI"]     = 2.29,
@@ -150,29 +135,41 @@ VRB_WEIGHTS = {
   },
 
   ["DruidFeralDPS-EP"] = {
-    ["ATTACKPOWER"] = 1,
+    ["AGI"]              = 2.76,
+    ["ARMORPEN"]         = 0.5,
+    ["ATTACKPOWER"]      = 1,
+    ["CRIT"]             = 30.13,
     ["FERALATTACKPOWER"] = 1,
-    ["STR"]      = 2.64,
-    ["AGI"]      = 2.8,
-    ["TOHIT"]    = { 32.78, 8, 0 },
-    ["CRIT"]     = 30.88,
-    ["ARMORPEN"] = 0.5,
+    ["HASTE"]            = 13.6,
+    ["STR"]              = 2.64,
+    ["TOHIT"]            = 31.85,
   },
 
-  ["DruidTanking-EP"] = {
-    ["STR"]     = 2.2,
-    ["AGI"]     = 1.57,
-    ["STA"]     = 2.2,
-    ["ATTACKPOWER"] = 1,
+  ["DruidTank-EP"] = {
+    ["AGI"]              = 1.57,
+    ["ARMOR"]            = 0.33,
+    ["ARMORPEN"]         = 0.5,
+    ["ATTACKPOWER"]      = 1,
+    ["CRIT"]             = 25.8,
+    ["DEFENSE"]          = 0.46,
     ["FERALATTACKPOWER"] = 1,
-    ["TOHIT"]   = { 36.1, 8, 0 },
-    ["CRIT"]    = 25.8,
-    ["HASTE"]    = 26.6,
-    ["ARMOR"]   = 0.33,
-    ["DEFENSE"] = 0.46,
-    ["HEALTH"] = 0.167,
-    ["ARMORPEN"] = 0.5,
+    ["HASTE"]            = 26.6,
+    ["HEALTH"]           = 0.167,
+    ["STA"]              = 2.2,
+    ["STR"]              = 2.2,
+    ["TOHIT"]            = 36.1
   },
+
+  ["DruidThreat-EP"] = {
+    ["AGI"]              = 1.57,
+    ["ARMORPEN"]         = 0.5,
+    ["ATTACKPOWER"]      = 1,
+    ["CRIT"]             = 25.8,
+    ["FERALATTACKPOWER"] = 1,
+    ["HASTE"]            = 26.6,
+    ["STR"]              = 2.2,
+    ["TOHIT"]            = 36.1
+  },  
 
   ["ShamanHEP"] = {
     ["INT"]       = 0.20,
